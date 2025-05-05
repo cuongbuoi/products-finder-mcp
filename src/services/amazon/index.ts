@@ -18,7 +18,8 @@ export const createAmazonScraper = (options: {
     sortBy?: string
     verifiedPurchaseOnly?: boolean
     filterByStar?: string
-  }
+  },
+  timeout?: number
 }) => {
   return new AmazonScraper({
     keyword: options.keyword,
@@ -35,7 +36,8 @@ export const createAmazonScraper = (options: {
       sortBy: options.reviewFilter?.sortBy || 'helpful',
       verifiedPurchaseOnly: options.reviewFilter?.verifiedPurchaseOnly || false,
       filterByStar: options.reviewFilter?.filterByStar || 'all_stars'
-    }
+    },
+    timeout: options.timeout || 45000
   })
 }
 

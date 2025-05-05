@@ -31,31 +31,15 @@ export class AmazonScraper {
   private keyword?: string
   private number: number
   private searchPage?: number
-  private sponsored: boolean
   private proxy?: string[] | string
   private cli?: boolean
   private scrapeType: 'products'
-  private asin?: string
-  private sort?: boolean
-  private discount?: boolean
   private rating: [number, number]
-  private minRating: number = 1
-  private maxRating: number = 5
   private timeout: number
   private randomUa: boolean
   private totalProducts: number = 0
-  private reviewMetadata: AmazonReviewMetadata = {
-    total_reviews: 0,
-    stars_stat: {}
-  }
   private referer?: string[] | string
   private ua: string
-  private reviewFilter: {
-    formatType: string
-    sortBy: string
-    verifiedPurchaseOnly: boolean
-    filterByStar: string
-  }
   private spinner?: ReturnType<typeof ora>
 
   /**
@@ -82,33 +66,20 @@ export class AmazonScraper {
     this.keyword = options.keyword
     this.number = options.number > 0 ? options.number : 10
     this.searchPage = options.page
-    this.sponsored = options.sponsored || false
     this.proxy = options.proxy
     this.cli = options.cli
     this.scrapeType = options.scrapeType
-    this.asin = options.asin
-    this.sort = options.sort
-    this.discount = options.discount
     this.rating = options.rating || [1, 5]
-    this.minRating = this.rating[0]
-    this.maxRating = this.rating[1]
     this.timeout = options.timeout || 500
     this.randomUa = options.randomUa || false
     this.referer = options.referer
     this.ua =
       options.ua ||
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'
-    this.reviewFilter = options.reviewFilter
 
     // Initialize CLI spinner if enabled
     if (this.cli) {
       this.spinner = ora('Amazon Scraper is starting...').start()
-    }
-
-    // Set min and max rating from options
-    if (Array.isArray(this.rating) && this.rating.length === 2) {
-      this.minRating = parseFloat(String(this.rating[0]))
-      this.maxRating = parseFloat(String(this.rating[1]))
     }
   }
 
@@ -217,8 +188,7 @@ export class AmazonScraper {
       // Stop CLI spinner if enabled
       if (this.cli && this.spinner) {
         this.spinner.succeed(
-          `Scraping completed in ${moment.duration(Date.now() - startTime).humanize()}, ${
-            this.collector.length
+          `Scraping completed in ${moment.duration(Date.now() - startTime).humanize()}, ${this.collector.length
           } items collected`
         )
       }
@@ -292,10 +262,10 @@ export class AmazonScraper {
       qs: {
         ...(this.scrapeType === 'products'
           ? {
-              k: this.keyword,
-              ...(this.productSearchCategory ? { i: this.productSearchCategory } : {}),
-              ...(page && page > 1 ? { page, ref: `sr_pg_${page}` } : {})
-            }
+            k: this.keyword,
+            ...(this.productSearchCategory ? { i: this.productSearchCategory } : {}),
+            ...(page && page > 1 ? { page, ref: `sr_pg_${page}` } : {})
+          }
           : {})
       }
     }
