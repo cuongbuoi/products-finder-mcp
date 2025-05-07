@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export const httpClient = axios.create({
-  baseURL: process.env.KUDOSI_API_URL,
+  baseURL: process.env.KUDOSI_API_URL || 'https://priv.kudosi.ai',
   headers: {
     'Content-Type': 'application/json',
     Accept: '*/*',
