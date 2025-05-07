@@ -17,6 +17,11 @@
     "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "build",
+    "fix-imports.js",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
   ]
 }

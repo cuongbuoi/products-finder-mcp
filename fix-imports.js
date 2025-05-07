@@ -54,7 +54,24 @@ function fixImports(filePath) {
     }
 }
 
+function addShebang(filePath) {
+    const content = fs.readFileSync(filePath, 'utf8');
+
+    // Only add shebang if it doesn't already have one
+    if (!content.startsWith('#!/usr/bin/env node')) {
+        console.log(`Adding shebang to ${filePath}`);
+        const newContent = `#!/usr/bin/env node\n\n${content}`;
+        fs.writeFileSync(filePath, newContent, 'utf8');
+    }
+}
+
 const allTsFiles = getAllFiles('./src');
 allTsFiles.forEach(fixImports);
+
+// Add shebang to the build/index.js file if it exists
+const indexJsPath = './build/index.js';
+if (fs.existsSync(indexJsPath)) {
+    addShebang(indexJsPath);
+}
 
 console.log('All imports fixed!'); 
