@@ -188,7 +188,8 @@ export class AmazonScraper {
       // Stop CLI spinner if enabled
       if (this.cli && this.spinner) {
         this.spinner.succeed(
-          `Scraping completed in ${moment.duration(Date.now() - startTime).humanize()}, ${this.collector.length
+          `Scraping completed in ${moment.duration(Date.now() - startTime).humanize()}, ${
+            this.collector.length
           } items collected`
         )
       }
@@ -262,10 +263,10 @@ export class AmazonScraper {
       qs: {
         ...(this.scrapeType === 'products'
           ? {
-            k: this.keyword,
-            ...(this.productSearchCategory ? { i: this.productSearchCategory } : {}),
-            ...(page && page > 1 ? { page, ref: `sr_pg_${page}` } : {})
-          }
+              k: this.keyword,
+              ...(this.productSearchCategory ? { i: this.productSearchCategory } : {}),
+              ...(page && page > 1 ? { page, ref: `sr_pg_${page}` } : {})
+            }
           : {})
       }
     }

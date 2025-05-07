@@ -18,7 +18,7 @@ export const createAmazonScraper = (options: {
     sortBy?: string
     verifiedPurchaseOnly?: boolean
     filterByStar?: string
-  },
+  }
   timeout?: number
 }) => {
   return new AmazonScraper({

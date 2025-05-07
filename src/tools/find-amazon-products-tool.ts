@@ -3,8 +3,8 @@ import { Tool, UserError, TextContent } from 'fastmcp'
 import { searchAmazonProducts } from '../services/amazon/index.js'
 
 const parameters = z.object({
-  search: z.string().describe("The search term to find Amazon products"),
-  page_size: z.number().optional().default(20).describe("Maximum number of products to retrieve, default is 20")
+  search: z.string().describe('The search term to find Amazon products'),
+  page_size: z.number().optional().default(20).describe('Maximum number of products to retrieve, default is 20')
 })
 
 export const findAmazonProductsTool: Tool<undefined, typeof parameters> = {
@@ -13,7 +13,7 @@ export const findAmazonProductsTool: Tool<undefined, typeof parameters> = {
     'Retrieve a list of products from Amazon with optional search filtering and pagination. This tool returns product details including titles, IDs, URLs, prices, status, review counts, and average ratings. Use this to browse your product catalog or find specific products by search term.',
   parameters,
   annotations: {
-    'title': 'Find Amazon Products',
+    title: 'Find Amazon Products'
   },
   timeoutMs: 60000,
   execute: async (args) => {
