@@ -1,6 +1,6 @@
 import { FastMCP } from 'fastmcp'
-import { findAmazonProductsTool } from './find-amazon-products-tool.ts'
-import { searchAliexpressByImageTool } from './search-aliexpress-by-image.ts'
+import { findAmazonProductsTool } from './find-amazon-products-tool.js'
+import { searchAliexpressByImageTool } from './search-aliexpress-by-image.js'
 
 /**
  * Register all tools with the FastMCP server

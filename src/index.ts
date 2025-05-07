@@ -1,4 +1,4 @@
-import { createServer } from './config/server-config.ts'
+import { createServer } from './config/server-config.js'
 import dotenv from 'dotenv'
 
 dotenv.config()

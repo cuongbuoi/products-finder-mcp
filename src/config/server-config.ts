@@ -1,5 +1,5 @@
 import { FastMCP } from 'fastmcp'
-import { registerTools } from '../tools/index.ts'
+import { registerTools } from '../tools/index.js'
 
 /**
  * Configuration options for the server

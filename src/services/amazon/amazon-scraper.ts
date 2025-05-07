@@ -12,8 +12,8 @@ import {
   AmazonReviewMetadata,
   HttpRequestOptions,
   AmazonScraperResult
-} from '../../types/amazon.ts'
-import { generateRandomUserAgent, getProxy, getRandomReferer, generateRequestHeaders } from './utils.ts'
+} from '../../types/amazon.js'
+import { generateRandomUserAgent, getProxy, getRandomReferer, generateRequestHeaders } from './utils.js'
 
 /**
  * Amazon Scraper

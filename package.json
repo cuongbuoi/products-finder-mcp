@@ -1,9 +1,13 @@
 {
-  "name": "products-finder-mcp",
+  "name": "kds-find-products-mcp",
   "version": "1.0.0",
-  "description": "Products Finder MCP is a MCP server to find products on Amazon, AliExpress, etc.",
+  "description": "Kudosi MCP to find products on Amazon, AliExpress, etc.",
+  "bin": {
+    "kds-find-products-mcp": "./build/index.js"
+  },
   "type": "module",
   "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
     "cli": "npx fastmcp dev src/index.ts",
     "dev": "tsx watch src/index.ts",
     "dev:stdio": "npm run dev stdio",
@@ -13,6 +17,9 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\""
   },
+  "files": [
+    "build"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

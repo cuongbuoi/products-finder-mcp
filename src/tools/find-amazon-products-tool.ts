@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { Tool, UserError, TextContent } from 'fastmcp'
-import { searchAmazonProducts } from '../services/amazon/index.ts'
+import { searchAmazonProducts } from '../services/amazon/index.js'
 
 const parameters = z.object({
   search: z.string().describe("The search term to find Amazon products"),

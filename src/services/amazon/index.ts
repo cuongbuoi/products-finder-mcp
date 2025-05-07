@@ -1,6 +1,6 @@
-import { AmazonScraper } from './amazon-scraper.ts'
-import { AMAZON_CONSTANTS } from '../../constants/amazon.ts'
-import { AmazonProduct } from '../../types/amazon.ts'
+import { AmazonScraper } from './amazon-scraper.js'
+import { AMAZON_CONSTANTS } from '../../constants/amazon.js'
+import { AmazonProduct } from '../../types/amazon.js'
 /**
  * Create an Amazon scraper with default US geo settings
  */

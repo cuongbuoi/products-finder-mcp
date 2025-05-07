@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { Tool, UserError, TextContent } from 'fastmcp'
-import { searchByImage } from '../services/aliexpress/index.ts'
+import { searchByImage } from '../services/aliexpress/index.js'
 const parameters = z.object({
     image_url: z.string().describe("The image URL of the product"),
     product_id: z.number().describe("The Shopify product ID of the product")

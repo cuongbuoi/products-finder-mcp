@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios'
-import { httpClient } from '../http-client.ts'
-import { ErrorResponse } from '../../types/index.ts'
-import { SuggestProducts } from '../../types/aliexpress.ts'
+import { httpClient } from '../http-client.js'
+import { ErrorResponse } from '../../types/index.js'
+import { SuggestProducts } from '../../types/aliexpress.js'
 
 interface SearchByImageRequest {
     image_url: string
