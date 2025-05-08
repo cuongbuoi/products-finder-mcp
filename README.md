@@ -36,6 +36,17 @@ This tool helps you discover competitor products, source new inventory, or compa
    ```
    KUDOSI_TOKEN=your_token
    ```
+4. Build the project
+
+   ```bash
+   npm run build
+   ```
+
+5. Install bin
+
+   ```bash
+   npm i -g .
+   ```
 
 ## Usage
 
@@ -46,10 +57,9 @@ This tool helps you discover competitor products, source new inventory, or compa
    Open Cursor settings and add the following to your `config.json` file:
 
    ```json
-   "mcp": {
+   "mcpServers": {
      "products-finder-mcp": {
-       "command": "npx",
-       "args": ["tsx", "/path/to/products-finder-mcp/src/index.ts"],
+       "command": "kds-find-products-mcp",
        "env": {
          "KUDOSI_TOKEN": "your_kudosi_token"
        }
@@ -68,21 +78,11 @@ This tool helps you discover competitor products, source new inventory, or compa
 
 ### With Claude Desktop
 
-1. Configure the MCP in your Claude Desktop settings:
+To use this MCP server with Claude Desktop:
 
-   ```json
-   "products-finder-mcp": {
-     "command": "npx",
-     "args": ["tsx", "/Users/yourusername/path/to/products-finder-mcp/src/index.ts"],
-     "env": {
-       "KUDOSI_TOKEN": "your_kudosi_token"
-     }
-   }
-   ```
-
-2. Restart Claude Desktop.
-
-3. Interact with the MCP using natural language queries to find products.
+1. Follow the comprehensive guide at https://modelcontextprotocol.io/quickstart/user
+2. Add your MCP server configuration in Claude Desktop settings
+3. Connect Claude to your local MCP server to access shop information, products, and review management tools
 
 ## Example Queries
 
